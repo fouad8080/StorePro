@@ -52,7 +52,7 @@ function ShowInventory(){
     
 
     return(
-        <div className=" bg-[#F8FAF8] dark:bg-[#12161F] border border- rounded-2xl border-gray-300 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
+        <div className="min-w-[650px] bg-[#F8FAF8] dark:bg-[#12161F] border border- rounded-2xl border-gray-300 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
             <div className="bg-[#edeeed] dark:bg-[#151A24] grid grid-cols-9 w-full text-center rounded-t-2xl p-3">
                 <p className="min-w-0 card-title col-span-2">Product</p>
                 <p className="card-title">SKU</p>

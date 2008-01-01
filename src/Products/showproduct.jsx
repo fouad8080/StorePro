@@ -55,8 +55,8 @@ function ShowProducts(){
     
 
     return(
-        <div className=" bg-[#F8FAF8] dark:bg-[#0A0E14] border border- rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
-            <div className="bg-[#dde0e7] dark:bg-[#151A24] grid grid-cols-9 w-full text-center rounded-t-2xl p-3">
+        <div className="min-w-[650px] bg-[#F8FAF8] dark:bg-[#0A0E14] border border- rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
+            <div className=" dark:bg-[#151A24] grid grid-cols-9 w-full text-center rounded-t-2xl p-3 overflow-x-auto">
                 <p className="min-w-0 card-title col-span-2">Product</p>
                 <p className="card-title">SKU</p>
                 <p className="card-title">Category</p>
@@ -66,7 +66,7 @@ function ShowProducts(){
                 <p className="card-title">Status</p>
                 <p className="card-title">Action</p>
             </div>
-            <div className="  w-full rounded-t-2xl p-3 text-center font-medium text-gray-700 dark:text-gray-300">
+            <div className="  w-full rounded-t-2xl p-3 text-center font-medium text-gray-700 dark:text-gray-300 overflow-x-auto">
                 {getinfo.length===0 ? <h1 className="">there is no result</h1>:
                 getinfo.map((product,index)=>(
                     <div className="product border-b border-gray-400 dark:border-[#1E2530] grid grid-cols-9 items-center justify-center text-center" key={index}>

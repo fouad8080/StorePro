@@ -53,7 +53,7 @@ function ShowSuppliers(){
     
 
     return(
-        <div className=" bg-[#F8FAF8] dark:bg-[#0A0E14] border border- rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
+        <div className="min-w-[650px] bg-[#F8FAF8] dark:bg-[#0A0E14] border border- rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
             <div className="  grid grid-cols-9 w-full text-center border-b border-gray-200 dark:border-[#1E2530] rounded-t-2xl p-3">
                 <p className=" font-semibold">Supplier</p>
                 <p className="min-w-0 card-title font-semibold">Contact</p>

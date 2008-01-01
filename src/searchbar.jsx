@@ -62,12 +62,12 @@ function Searchbar(){
     
 
     return(
-        <div className="info flex flex-row relative justify-between items-center p-3.5 w- h-16 bg-[#F8FAF8] dark:bg-[rgb(10,14,20)] border-b border-b-gray-400 dark:border-b-[#1E2530]  rounded-t-3xl">
+        <div className="info flex flex-row relative justify-between items-center p-3.5 w- h-16 bg-[#F8FAF8] dark:bg-[rgb(10,14,20)] border-b border-b-gray-400 dark:border-b-[#1E2530]  md:rounded-t-3xl">
                     <button className={`p-2 rounded-full ${sidebarOpen ? "bg-[#075e48] dark:bg-[#12161F]" : "bg-gray-300 dark:bg-[#12161F]"}" block md:hidden`} onClick={() => setSidebarOpen(!sidebarOpen)}>
                         <Option className="w-5 h-5 mr-2 invert-0 text-gray-800 dark:invert" />
                     </button>
                     <div className="flex flex-col  w-2/5 rounded-2xl">
-                        <div className="search_bar flex relative top-0  bg-gray-300 dark:bg-[#12161F] dark:border dark:border-[#1E2530] items-center  rounded-2xl pl-3">
+                        <div className="search_bar flex relative top-0  bg-[#e9eae9] dark:bg-[#12161F] dark:border dark:border-[#1E2530] items-center  rounded-2xl pl-3">
                             <Search className="w-5 h-5 mr-2 invert-0 text-gray-800 dark:invert" />
                             <div className="w-full flex flex-col">
                                 <input 
