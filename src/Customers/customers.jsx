@@ -32,7 +32,7 @@ function Customers(){
             )
         }
     return(
-    <div className="p-4">
+    <div className="p-4 min-w-0">
         <div className="flex justify-between items-center mb-4">
             <div className="">
                 <h1 className="font-semibold text-2xl">Customers</h1>

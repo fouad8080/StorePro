@@ -49,10 +49,10 @@ function App() {
   return (
     <BrowserRouter>
       <inform.Provider value={{info,setinfo,categories,setcategory,darkMode,setdarkMode,prductsfilter,setproductfilter,oredersfilter,setordersfilter,customersfilter,setcustomersfilter,suppliersfilter,setsuppliersfilter,inventoryfilter,setinventoryfilter,sidebarOpen,setSidebarOpen}}>
-        <div className="flex w-full overflow-hidden bg-[#062E24] dark:bg-[#0A0E14] lg:rounded-tl-2xl ">
+        <div className="flex w-full min-w-0 overflow-hidden bg-[#062E24] dark:bg-[#0A0E14]  ">
           <Info info={{info,setinfo,setcategory}} />
             <Sidebar value={{sidebarOpen,setSidebarOpen}} />
-            <div className={`UI w-full ${sidebarOpen ? "hidden" : "flex-col"} bg-[#F8FAF8] dark:bg-[#0A0E14] dark:text-gray-100 rounded-tl-3xl min-h-dvh md:flex md:flex-col md:w-3/4`}>
+            <div className={`UI w-full ${sidebarOpen ? "hidden" : "flex-col"} bg-[#F8FAF8] dark:bg-[#0A0E14] dark:text-gray-100 rounded-tl-3xl min-w-0 min-h-dvh md:flex md:flex-col md:w-3/4`}>
               <Searchbar value={{sidebarOpen,setSidebarOpen}} />
               <Routes>
                 <Route path="/" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
