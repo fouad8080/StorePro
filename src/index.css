@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+@layer components {
+  .card {
+    @apply bg-white rounded-3xl mt-0 p-4 border border-[#E7ECE8]
+    shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+    hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]
+    transition-all duration-300;
+  }
+
+  .card-icon {
+    @apply w-14 h-14 rounded-2xl
+    flex items-center justify-center
+    bg-[#0D5B43]/10 text-[#0D5B43];
+  }
+
+  .card-title {
+    @apply text-lg font-semibold text-gray-800 ;
+  }
+
+  .card-value {
+    @apply text-sm  font-semibold text-[#1F2937] mt-2;
+  }
+
+  .card-footer {
+    @apply flex items-center gap-2 mt-5;
+  }
+
+  .card-trend-up {
+    @apply text-[#16A34A] bg-[#DCFCE7]
+    rounded-full px-2 py-1
+    text-xs font-semibold;
+  }
+
+  .card-trend-down {
+    @apply text-[#DC2626] bg-[#FEE2E2]
+    rounded-full px-2 py-1
+    text-xs font-semibold;
+  }
+
+  .card-description {
+    @apply text-xs text-[#6B7280];
+  }
+}
