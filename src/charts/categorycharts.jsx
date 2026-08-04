@@ -3,10 +3,11 @@ import { useEffect, useState, useContext } from "react";
 import { inform } from "../App";
 
 function CategoryDistribution() {
-  const { categories } = useContext(inform);
+  const { categories,setcategory } = useContext(inform);
   const [catnum, setcatnum] = useState([]);
 
   
+
   useEffect(() => {
     if (categories && Object.keys(categories).length > 0) {
       const chartinfo = Object.entries(categories).map(([name, value]) => ({
@@ -51,34 +52,34 @@ function CategoryDistribution() {
       stroke: { width: 0 },
     },
   });
-  useEffect(
-    ()=>{
-      const sorted=[...catnum].sort((a,b)=>b.value-a.value);
-      const topcategories=sorted.slice(0,4)
-      const restcategories=sorted.slice(4);
-      const other=restcategories.reduce((sum,cat)=> sum +cat.value,0)
-      const finallist=other > 0 ? [topcategories,{name:"Others",value:other}] : topcategories;
-      console.log(finallist)
-      setState((prev)=>({
-        ...prev,
-        series:finallist.map((cat)=>cat.value),
-        options:{
-          ...prev.options,
-          labels:finallist.map((cat)=>cat.name),
-        }
-      }))
 
-    }
-    ,[catnum]
-  )
- 
+  useEffect(() => {
+    if (catnum.length === 0) return;
 
-  // خطوة 3: منع أي عرض قبل ما الداتا تجهز
+    const sorted = [...catnum].sort((a, b) => b.value - a.value);
+    const topcategories = sorted.slice(0, 4);
+    const restcategories = sorted.slice(4);
+    const other = restcategories.reduce((sum, cat) => sum + cat.value, 0);
+    const finallist =
+      other > 0
+        ? [...topcategories, { name: "Others", value: other }]
+        : topcategories;
+
+    setState((prev) => ({
+      ...prev,
+      series: finallist.map((cat) => cat.value),
+      options: {
+        ...prev.options,
+        labels: finallist.map((cat) => cat.name),
+      },
+    }));
+  }, [catnum]);
+
   if (state.series.length === 0) {
     return (
       <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100">
         <h3 className="font-semibold text-gray-800">Category Distribution</h3>
-        <p className="text-sm text-gray-400 mt-4">جاري التحميل...</p>
+        <p className="text-sm text-gray-400 mt-4">loading...</p>
       </div>
     );
   }
@@ -101,16 +102,15 @@ function CategoryDistribution() {
             const value = state.series[index];
             const total = state.series.reduce((a, b) => a + b, 0);
             const percentage = ((value / total) * 100).toFixed(0);
-
             return (
-              <li
-                key={label}
-                className="flex justify-between items-center text-sm"
-              >
+              <li key={label} className="flex justify-between items-center text-sm">
                 <div className="flex items-center gap-1">
                   <span
                     className="w-2.5 h-2.5 rounded-full"
-                    style={{ backgroundColor: state.options.colors[index % state.options.colors.length] }}
+                    style={{
+                      backgroundColor:
+                        state.options.colors[index % state.options.colors.length],
+                    }}
                   ></span>
                   <span className="text-gray-700">{label}</span>
                 </div>
