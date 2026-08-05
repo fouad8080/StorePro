@@ -9,7 +9,7 @@ function Cards() {
 
     useEffect(() => {
         try {
-            setgetinfo(info.summary)
+            setgetinfo(info.customers)
         } catch (error) {
             console.log(error)
         }
@@ -19,48 +19,48 @@ function Cards() {
 
     const cardsData = [
         {
-            title: "Total Orders",
-            value: isLoading ? "Loading..." : "40",
+            title: "Total Customers",
+            value: isLoading ? "Loading..." : "2843",
             icon: <ShoppingCart /> ,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
             trend: isLoading ? "Loading..." : "+18.4%",
             trendType: "up",
-            description: "of totoal",
+            description: "vs last month",
         },
         {
-            title: "Pending",
-            value: isLoading ? "Loading..." : getinfo.totalOrders,
+            title: "New Customers",
+            value: isLoading ? "Loading..." : "245",
             icon: <ShoppingBag/>,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
             trend: isLoading ? "Loading..." : "13.2%",
             trendType: "up",
-            description: "of totoal",
+            description: "vs last month",
         },
         {
-            title: "Shipped",
-            value: isLoading ? "Loading..." : getinfo.productsSold,
+            title: "Active Customers",
+            value: isLoading ? "Loading..." : "2156",
             icon: <Truck/>,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
             trend: isLoading ? "Loading..." : "+15.7%",
             trendType: "up",
-            description: "of totoal",
+            description: "vs last month",
         },
         {
-            title: "Delivered",
-            value: isLoading ? "Loading..." : getinfo.lowStockItems,
+            title: "Repeat Customers",
+            value: isLoading ? "Loading..." : 687,
             icon: <Check />,
             iconAlt: "trending down",
             iconClass: "bg-orange-100 text-orange-600",
             imgClass: "w-20 h-full",
             trend: isLoading ? "Loading..." : "25%",
             trendType: "up",
-            description: "of totoal",
+            description: "vs last month",
         },
     ]
 
@@ -70,7 +70,7 @@ function Cards() {
                 <div className="card" key={i}>
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="card-title">{card.title}</p>
+                            <p className="card-title text-md">{card.title}</p>
                             <h2 className="card-value text-2xl">{card.value}</h2>
                         </div>
                         <div className={`card-icon ${card.iconClass}`}>

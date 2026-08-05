@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { inform } from '../App'
+import {Check, BoxIcon,AlertTriangle ,XSquare } from 'lucide-react'
 
 function Cards() {
     const { info } = useContext(inform)
@@ -7,6 +8,7 @@ function Cards() {
 
     useEffect(() => {
         try {
+            console.log(info.summary)
             setgetinfo(info.summary)
         } catch (error) {
             console.log(error)
@@ -18,8 +20,8 @@ function Cards() {
     const cardsData = [
         {
             title: "Total Products",
-            value: isLoading ? "Loading..." : `${getinfo.totalProduct}`,
-            icon: "./icon/icon/total-sales.png",
+            value: isLoading ? "Loading..." : "3124",
+            icon: <BoxIcon />,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -30,7 +32,7 @@ function Cards() {
         {
             title: "In Stock",
             value: isLoading ? "Loading..." : getinfo.totalOrders,
-            icon: "./icon/icon/orders.png",
+            icon: <Check />,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -41,18 +43,18 @@ function Cards() {
         {
             title: "Low Stock",
             value: isLoading ? "Loading..." : getinfo.productsSold,
-            icon: "./icon/icon/products-sold.png",
-            iconAlt: "trending up",
+            icon: <AlertTriangle />,
+            iconAlt: "trending down",
             iconClass: "",
             imgClass: "w-17 h-full",
             trend: isLoading ? "Loading..." : "+15.7%",
-            trendType: "up",
+            trendType: "down",
             description: "Compared to last month",
         },
         {
             title: "Out of Stock",
             value: isLoading ? "Loading..." : getinfo.lowStockItems,
-            icon: "./icon/icon/low-stock.png",
+            icon: <XSquare />,
             iconAlt: "trending down",
             iconClass: "bg-orange-100 text-orange-600",
             imgClass: "w-20 h-full",
@@ -68,11 +70,11 @@ function Cards() {
                 <div className="card" key={i}>
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="card-title">{card.title}</p>
-                            <h2 className="card-value">{card.value}</h2>
+                            <p className="card-title text-md">{card.title}</p>
+                            <h2 className="card-value text-2xl">{card.value}</h2>
                         </div>
                         <div className={`card-icon ${card.iconClass}`}>
-                            <img src={card.icon} alt={card.iconAlt} className={card.imgClass} />
+                            {card.icon}
                         </div>
                     </div>
 

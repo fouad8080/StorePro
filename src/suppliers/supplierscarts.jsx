@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { inform } from '../App'
-import { ShoppingCart , ShoppingBag , Truck  , Check } from 'lucide-react'
+import { ShoppingCart ,Clock , Truck  , Check } from 'lucide-react'
 
 
 function Cards() {
@@ -19,9 +19,9 @@ function Cards() {
 
     const cardsData = [
         {
-            title: "Total Orders",
+            title: "Total Suppliers",
             value: isLoading ? "Loading..." : "40",
-            icon: <ShoppingCart /> ,
+            icon: <Truck /> ,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -30,9 +30,9 @@ function Cards() {
             description: "of totoal",
         },
         {
-            title: "Pending",
+            title: "Active Suppliers",
             value: isLoading ? "Loading..." : getinfo.totalOrders,
-            icon: <ShoppingBag/>,
+            icon: <Check/>,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -41,9 +41,9 @@ function Cards() {
             description: "of totoal",
         },
         {
-            title: "Shipped",
+            title: "Pending Orders",
             value: isLoading ? "Loading..." : getinfo.productsSold,
-            icon: <Truck/>,
+            icon: <ShoppingCart/>,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -52,9 +52,9 @@ function Cards() {
             description: "of totoal",
         },
         {
-            title: "Delivered",
+            title: "Avg. Delivery Time",
             value: isLoading ? "Loading..." : getinfo.lowStockItems,
-            icon: <Check />,
+            icon: <Clock />,
             iconAlt: "trending down",
             iconClass: "bg-orange-100 text-orange-600",
             imgClass: "w-20 h-full",
@@ -71,7 +71,7 @@ function Cards() {
                     <div className="flex justify-between items-start">
                         <div>
                             <p className="card-title">{card.title}</p>
-                            <h2 className="card-value text-2xl">{card.value}</h2>
+                            <h2 className="card-value">{card.value}</h2>
                         </div>
                         <div className={`card-icon ${card.iconClass}`}>
                         {card.icon}

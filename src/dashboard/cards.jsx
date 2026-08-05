@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { inform } from '../App'
+import { DollarSign ,ShoppingBag, Box,AlertTriangle } from 'lucide-react'
+
 
 function Cards() {
     const { info } = useContext(inform)
@@ -19,7 +21,7 @@ function Cards() {
         {
             title: "Total Sales",
             value: isLoading ? "Loading..." : `$${getinfo.totalSales}`,
-            icon: "./icon/icon/total-sales.png",
+            icon: <DollarSign />,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -30,7 +32,7 @@ function Cards() {
         {
             title: "Orders",
             value: isLoading ? "Loading..." : getinfo.totalOrders,
-            icon: "./icon/icon/orders.png",
+            icon: <ShoppingBag />,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -41,7 +43,7 @@ function Cards() {
         {
             title: "Products Sold",
             value: isLoading ? "Loading..." : getinfo.productsSold,
-            icon: "./icon/icon/products-sold.png",
+            icon: <Box />,
             iconAlt: "trending up",
             iconClass: "",
             imgClass: "w-17 h-full",
@@ -52,7 +54,7 @@ function Cards() {
         {
             title: "Low Stock Items",
             value: isLoading ? "Loading..." : getinfo.lowStockItems,
-            icon: "./icon/icon/low-stock.png",
+            icon: <AlertTriangle />,
             iconAlt: "trending down",
             iconClass: "bg-orange-100 text-orange-600",
             imgClass: "w-20 h-full",
@@ -72,7 +74,7 @@ function Cards() {
                             <h2 className="card-value">{card.value}</h2>
                         </div>
                         <div className={`card-icon ${card.iconClass}`}>
-                            <img src={card.icon} alt={card.iconAlt} className={card.imgClass} />
+                            {card.icon}
                         </div>
                     </div>
 

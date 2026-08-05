@@ -1,6 +1,6 @@
 import {useState ,useEffect ,BrowserRouter ,Routes,Route} from 'react' 
-import Cards from './charts/cards.jsx' 
-import Charts from './charts/charts.jsx'
+import Cards from './dashboard/cards.jsx' 
+import Charts from './dashboard/charts.jsx'
 
 function Dashboard(){
 

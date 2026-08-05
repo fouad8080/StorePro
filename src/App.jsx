@@ -4,6 +4,9 @@ import Dashboard from "./dashboard";
 import Products from "./Products/product";
 import Info from "./info/info";
 import Orders from './Orders/orders';
+import Customers from "./Customers/customers";
+import Suppliers from "./suppliers/suppliers";
+
 export const inform=createContext(null)
 
 
@@ -57,8 +60,8 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
                 <Route path="/products" element={<Products className="" value={{info,setcategory,categories}} />} />
                 <Route path="/orders" element={<Orders className="" value={{info,setcategory,categories}} />} />
-                <Route path="/customers" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
-                <Route path="/suppliers" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
+                <Route path="/customers" element={<Customers className="" value={{info,setcategory,categories}} />} />
+                <Route path="/suppliers" element={<Suppliers className="" value={{info,setcategory,categories}} />} />
                 <Route path="/inventory" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
                 <Route path="/analytics" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
                 <Route path="/reports" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
