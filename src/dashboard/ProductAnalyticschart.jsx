@@ -133,9 +133,9 @@ function ProductAnalytics() {
 
 
   return (
-    <div className="bg-white h-60 rounded-2xl p-4 shadow-sm border border-gray-100">
+    <div className="bg-white h-60 rounded-2xl p-4  shadow-sm border border-gray-100">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="font-semibold text-gray-800">Product Analytics</h3>
+        <h3 className="font-semibold  text-gray-800">Product Analytics</h3>
         <select onChange={(e)=>{setdomain(e.target.value)}} value={domain}  className="border rounded-lg px-3 py-1 text-sm">
             <option value="7days">Last 7 days</option>
             <option value="month">Last month</option>

@@ -47,7 +47,7 @@ function ShowOrders(){
 
     return(
         <div className=" bg-[#F8FAF8] border border- rounded-2xl border-gray-300 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
-            <div className="  grid grid-cols-9 w-full text-center border-b border-gray-200 rounded-t-2xl p-3">
+            <div className=" bg-[#edeeed] grid grid-cols-9 w-full text-center border-b border-gray-200 rounded-t-2xl p-3">
                 <p className=" font-semibold">Order ID</p>
                 <p className="min-w-0 card-title col-span-2 font-semibold">Customer</p>
                 <p className="card-title font-semibold">Date</p>

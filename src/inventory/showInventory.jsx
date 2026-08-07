@@ -2,7 +2,7 @@ import { useState,useEffect,useContext } from "react";
 import { inform } from "../App";
 import {Eye,Pencil,Trash2,Star, StarCheck} from 'lucide-react'
 
-function ShowProducts(){
+function ShowInventory(){
     const {info}=useContext(inform)
     const [getinfo,setgetinfo]=useState([])
     const [currentpage,setcurrentpage]=useState(1)
@@ -28,10 +28,10 @@ function ShowProducts(){
     useEffect(
         ()=>{
             try{
-                console.table(info.orders)
+                console.table(info.inventory)
                 setstartindex((currentpage-1) * itemperpage)
-                setgetinfo(info.products.slice(startindex,startindex + itemperpage))
-                settotalpage(Math.ceil(info.products.length / itemperpage))
+                setgetinfo(info.inventory.slice(startindex,startindex + itemperpage))
+                settotalpage(Math.ceil(info.inventory.length / itemperpage))
                 
 
             }
@@ -50,26 +50,24 @@ function ShowProducts(){
             <div className="bg-[#edeeed] grid grid-cols-9 w-full text-center rounded-t-2xl p-3">
                 <p className="min-w-0 card-title col-span-2">Product</p>
                 <p className="card-title">SKU</p>
-                <p className="card-title">Category</p>
-                <p className="card-title">Price</p>
+                <p className="card-title">Location</p>
+                <p className="card-title">Last Restock</p>
                 <p className="card-title">Stock</p>
-                <p className="card-title">Rating</p>
+                <p className="card-title">SupplierId</p>
                 <p className="card-title">Status</p>
                 <p className="card-title">Action</p>
             </div>
             <div className="  w-full rounded-t-2xl p-3 ">
                 {getinfo.map((product,index)=>(
                     <div className="product border-b border-gray-400 grid grid-cols-9 items-center justify-center text-center" key={index}>
-                        <div className="min-w-0 caret-title col-span-2 flex items-center ">
-                            <img className="w-10 h-10 object-cover rounded-md" src={product.images[0]} alt={product.title} />
-                        <p className="font-semibold text- text-md">{product.title}</p>
-                        </div>
+                        <p className="font-semibold min-w-0 col-span-2">{product.productTitle}</p>
                         <p >{product.sku}</p>
-                        <p>{product.category}</p>
-                        <p>{product.price}</p>
-                        <p>{product.stock}</p>
-                        <p className="flex items-center justify-center">{product.rating} <StarCheck className="w-6 h-6 text-yellow-500" /></p>
-                        <p className={product.availabilityStatus==="In Stock" ? "text-[#16A34A] bg-[#DCFCE7] rounded-md" : "text-[#DC2626] bg-[#FEE2E2] rounded-md "}>{product.availabilityStatus}</p>
+                        <p>{product.warehouse}</p>
+                        <p>{product.lastRestocked}</p>
+                        <p>{product.quantityInStock}</p>
+                        <p>{product.supplierId} </p>
+                        <p className={product.stockStatus==="In Stock" ? "text-[#16A34A] bg-[#DCFCE7] rounded-md" : "text-[#DC2626] bg-[#FEE2E2] rounded-md "}>{product.stockStatus}</p>
+                        
                         <div className="action">
                             <button className="bg-[#F2F3F4] p-2 mr-1 rounded-sm cursor-pointer hover:bg-gray-500"><Eye className="w-4 h-4  " /></button>
                             <button className="bg-[#F2F3F4] p-2 mr-1 rounded-sm cursor-pointer hover:bg-gray-500"><Pencil className="w-4 h-4  " /></button>
@@ -91,4 +89,4 @@ function ShowProducts(){
     )
 
 }
-export default ShowProducts
+export default ShowInventory
