@@ -20,7 +20,7 @@ function Info() {
 
         setcategory(categories)
       } catch (error) {
-        console.log(error)
+        
         setinfo(informition)
         
         setcategory(
@@ -28,6 +28,7 @@ function Info() {
           acc[product.category] = (acc[product.category] || 0) + 1
           return acc
         }, {})
+        
         )
       }
     }

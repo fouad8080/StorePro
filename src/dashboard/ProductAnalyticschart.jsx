@@ -5,7 +5,7 @@ import { inform } from "../App"
 
 
 function ProductAnalytics() {
-  const {info}=useContext(inform)
+  const {info,darkMode}=useContext(inform)
   const [getinfo,setgetinfo]=useState([])
   const [state, setState] = useState({})
   const [data,setdata]=useState([])
@@ -15,11 +15,11 @@ function ProductAnalytics() {
   useEffect(
       ()=>{
          try{
-          console.log(info)
+          
           if(domain==="7days"){
-            console.table(info)
+            
             setgetinfo(info.productAnalytics)
-              console.log(info.productAnalytics)
+              
               const items= info.productAnalytics.map(prev=>
                 prev.sold
               )
@@ -27,13 +27,13 @@ function ProductAnalytics() {
                 prev.day
               )
               setdata(items)
-              console.log(days)
+              
               setday(days)
           }
           else if( domain==="6month"){
             
             setgetinfo(info.productAnalyticsSixMonths)
-              console.log(info.productAnalyticsSixMonths)
+              
               const items= info.productAnalyticsSixMonths.map(prev=>
                 prev.sold
               )
@@ -41,13 +41,13 @@ function ProductAnalytics() {
                 prev.month
               )
               setdata(items)
-              console.log(days)
+              
               setday(days)
           }
           else if( domain==="month"){
             
             setgetinfo(info.productAnalyticsMonth)
-              console.table(info.productAnalyticsMonth)
+              
               const items= info.productAnalyticsMonth.map(prev=>
                 prev.sold
               )
@@ -82,7 +82,9 @@ function ProductAnalytics() {
             type: "bar",
             height: 280,
             toolbar: { show: false },
+            background: "transparent",
           },
+          theme: { mode: darkMode ? "dark" : "light" },
           xaxis: {
             categories: day,
           },
@@ -97,7 +99,7 @@ function ProductAnalytics() {
             enabled: false,
           },
           grid: {
-            borderColor: "#f1f1f1",
+            borderColor: darkMode ? "#1E2530" : "#f1f1f1",
             strokeDashArray: 4,
           },
         },
@@ -109,15 +111,15 @@ function ProductAnalytics() {
       
     }
     }
-    ,[data,getinfo]
+    ,[data,getinfo,darkMode]
   )
   
   if(!getinfo || getinfo.length === 0){
     return (
-    <div className="bg-white h-60 rounded-2xl p-4 shadow-sm border border-gray-100">
+    <div className="bg-white dark:bg-[#12161F] h-60 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-[#1E2530]">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="font-semibold text-gray-800">Product Analytics</h3>
-        <select onChange={(e)=>{setdomain(e.target.value)}} value={domain}  className="border rounded-lg px-3 py-1 text-sm">
+        <h3 className="font-semibold text-gray-800 dark:text-gray-100">Product Analytics</h3>
+        <select onChange={(e)=>{setdomain(e.target.value)}} value={domain}  className="border rounded-lg px-3 py-1 text-sm dark:bg-[#12161F] dark:border-[#1E2530] dark:text-gray-200">
             <option value="7days">Last 7 days</option>
             <option value="month">Last month</option>
             <option value="6month">Last 6 month</option>
@@ -133,10 +135,10 @@ function ProductAnalytics() {
 
 
   return (
-    <div className="bg-white h-60 rounded-2xl p-4  shadow-sm border border-gray-100">
+    <div className="bg-white dark:bg-[#12161F] h-60 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-[#1E2530]">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="font-semibold  text-gray-800">Product Analytics</h3>
-        <select onChange={(e)=>{setdomain(e.target.value)}} value={domain}  className="border rounded-lg px-3 py-1 text-sm">
+        <h3 className="font-semibold text-gray-800 dark:text-gray-100">Product Analytics</h3>
+        <select onChange={(e)=>{setdomain(e.target.value)}} value={domain}  className="border rounded-lg px-3 py-1 text-sm dark:bg-[#12161F] dark:border-[#1E2530] dark:text-gray-200">
             <option value="7days">Last 7 days</option>
             <option value="month">Last month</option>
             <option value="6month">Last 6 month</option>

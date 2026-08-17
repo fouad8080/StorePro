@@ -17,13 +17,13 @@ function Dashboard(){
      ]
      const today=new Date().toISOString().split("T")[0]
     return(
-        <div className="continer flex flex-row w-full  bg-[#062E24] ">
-            <div className="UI w-full h-full bg-[#F8FAF8]  ">
+        <div className="continer flex flex-row w-full  bg-[#062E24] dark:bg-[#0A0E14] ">
+            <div className="UI w-full h-full bg-[#F8FAF8] dark:bg-[#0A0E14]  ">
                {/*info bar */}
                {/*  /info bar */}
                {/*dashboard */}
                <div className='flex flex-col items-end'>
-                    <input className='w-45 mt-2 relative right-0 border rounded-lg p-1 mr-4 border-gray-700  ' defaultValue={today} type="date" />
+                    <input className='w-45 mt-2 relative right-0 border rounded-lg p-1 mr-4 border-gray-700 dark:border-[#1E2530] dark:bg-[#12161F] dark:text-gray-200 [color-scheme:light] dark:[color-scheme:dark] ' defaultValue={today} type="date" />
                     <Cards />
                     <Charts />
                </div>

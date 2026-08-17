@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { inform } from "../App";
 
 function CategoryDistribution() {
-  const { categories,setcategory } = useContext(inform);
+  const { categories,setcategory,darkMode } = useContext(inform);
   const [catnum, setcatnum] = useState([]);
 
   
@@ -15,13 +15,14 @@ function CategoryDistribution() {
         value,
       }));
       setcatnum(chartinfo);
+      
     }
   }, [categories]);
 
   const [state, setState] = useState({
     series: [],
     options: {
-      chart: { type: "donut" },
+      chart: { type: "donut", background: "transparent" },
       labels: [],
       colors: ["#166534", "#22c55e", "#4ade80", "#f97316", "#d1d5db"],
       legend: { show: false },
@@ -36,14 +37,14 @@ function CategoryDistribution() {
                 show: true,
                 label: "Total",
                 fontSize: "14px",
-                color: "#6b7280",
+                color: darkMode ? "#9CA3AF" : "#6b7280",
                 formatter: () => "2,456",
               },
               value: {
                 show: true,
                 fontSize: "24px",
                 fontWeight: 700,
-                color: "#1f2937",
+                color: darkMode ? "#F3F4F6" : "#1f2937",
               },
             },
           },
@@ -52,6 +53,35 @@ function CategoryDistribution() {
       stroke: { width: 0 },
     },
   });
+
+  useEffect(() => {
+    setState((prev) => ({
+      ...prev,
+      options: {
+        ...prev.options,
+        plotOptions: {
+          ...prev.options.plotOptions,
+          pie: {
+            ...prev.options.plotOptions.pie,
+            donut: {
+              ...prev.options.plotOptions.pie.donut,
+              labels: {
+                ...prev.options.plotOptions.pie.donut.labels,
+                total: {
+                  ...prev.options.plotOptions.pie.donut.labels.total,
+                  color: darkMode ? "#9CA3AF" : "#6b7280",
+                },
+                value: {
+                  ...prev.options.plotOptions.pie.donut.labels.value,
+                  color: darkMode ? "#F3F4F6" : "#1f2937",
+                },
+              },
+            },
+          },
+        },
+      },
+    }));
+  }, [darkMode]);
 
   useEffect(() => {
     if (catnum.length === 0) return;
@@ -77,16 +107,16 @@ function CategoryDistribution() {
 
   if (state.series.length === 0) {
     return (
-      <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100">
-        <h3 className="font-semibold text-gray-800">Category Distribution</h3>
-        <p className="text-sm text-gray-400 mt-4">loading...</p>
+      <div className="bg-white dark:bg-[#12161F] rounded-2xl p-3 shadow-sm border border-gray-100 dark:border-[#1E2530]">
+        <h3 className="font-semibold text-gray-800 dark:text-gray-100">Category Distribution</h3>
+        <p className="text-sm text-gray-400 dark:text-gray-500 mt-4">loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100">
-      <h3 className="font-semibold text-gray-800">Category Distribution</h3>
+    <div className="bg-white dark:bg-[#12161F] rounded-2xl p-3 shadow-sm border border-gray-100 dark:border-[#1E2530]">
+      <h3 className="font-semibold text-gray-800 dark:text-gray-100">Category Distribution</h3>
 
       <div className="flex items-center gap-6">
         <Chart
@@ -112,9 +142,9 @@ function CategoryDistribution() {
                         state.options.colors[index % state.options.colors.length],
                     }}
                   ></span>
-                  <span className="text-gray-700">{label}</span>
+                  <span className="text-gray-700 dark:text-gray-200">{label}</span>
                 </div>
-                <span className="text-gray-500">
+                <span className="text-gray-500 dark:text-gray-400">
                   {percentage}% ({value})
                 </span>
               </li>

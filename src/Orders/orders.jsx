@@ -5,7 +5,7 @@ import ShowOrders from "./showOrders";
 import { inform } from "../App";
 
 
-function Orders(){console.log("dasdsadsadasda")
+function Orders(){
     const {info}=useContext(inform)
     const [getinfo,setgetinfo]=useState([])
     
@@ -24,7 +24,7 @@ function Orders(){console.log("dasdsadsadasda")
 
     if(!getinfo || getinfo?.length===0){
         return(
-            <div className=" w-full bg-[#F8FAF8]  ">
+            <div className=" w-full bg-[#F8FAF8] dark:bg-[#0A0E14]  ">
             <h2>Loading...</h2>
 
             </div>
@@ -33,7 +33,7 @@ function Orders(){console.log("dasdsadsadasda")
     return(
         <div className="p-5">
             <h1 className="font-semibold text-2xl">Orders</h1>
-            <p className="font-semibold text-gray-600" >Manage andtrack customer orders</p>
+            <p className="font-semibold text-gray-600 dark:text-gray-400 dark:text-gray-500" >Manage andtrack customer orders</p>
             <Cards />
             <Orderstoolbar />
             <ShowOrders />

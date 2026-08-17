@@ -4,7 +4,7 @@ import { inform } from "../App";
   
 
 function Areacharts() {
-  const {info}=useContext(inform)
+  const {info,darkMode}=useContext(inform)
   const [getinfo,setgetinfo]=useState([])
   const [state, setState] = useState({})
   const [data,setdata]=useState([])
@@ -15,11 +15,11 @@ function Areacharts() {
   useEffect(
       ()=>{
          try{
-          console.log(info)
+          
           if(domain==="7days"){
-            console.log(domain)
+            
             setgetinfo(info.salesOverview)
-              console.table(info.salesOverview)
+              
               const items= info.salesOverview.map(prev=>
                 prev.total
               )
@@ -27,12 +27,12 @@ function Areacharts() {
                 prev.date
               )
               setdata(items)
-              console.log(days)
+              
               setday(days)
           }
           
           else if( domain==="month"){
-            console.log(domain)
+            
             setgetinfo(info.salesOverviewMonth)
               
               const items= info.salesOverviewMonth.map(prev=>
@@ -42,13 +42,13 @@ function Areacharts() {
                 prev.week
               )
               setdata(items)
-              console.log(days)
+              
               setday(days)
           }
           else if( domain==="6month"){
-            console.log(domain)
+            
             setgetinfo(info.salesOverviewSixMonths)
-              console.table(info.salesOverviewSixMonths)
+              
               const items= info.salesOverviewSixMonths.map(prev=>
                 prev.total
               )
@@ -56,7 +56,7 @@ function Areacharts() {
                 prev.month
               )
               setdata(items)
-              console.log(days)
+              
               setday(days)
           }    
               
@@ -86,7 +86,9 @@ function Areacharts() {
           type: "area",
           height: 350,
           zoom: { enabled: false },
+          background: "transparent",
         },
+        theme: { mode: darkMode ? "dark" : "light" },
         dataLabels: { enabled: false },
         stroke: { curve: "smooth" },
         colors:["#16a34a"],
@@ -97,6 +99,7 @@ function Areacharts() {
         legend: {
           horizontalAlign: "left",
         },
+        grid: { borderColor: darkMode ? "#1E2530" : "#e5e7eb" },
       },
     }
     setState(charinfo)
@@ -106,7 +109,7 @@ function Areacharts() {
         }
         
   }
-      ,[getinfo, data,domain]
+      ,[getinfo, data,domain,darkMode]
     )
     
 
@@ -117,7 +120,7 @@ function Areacharts() {
       <div> 
         <div className="flex justify-between">
           <p className="card-title ">Sales Overview</p>
-          <select  className="border rounded-lg px-3 py-1 text-sm">
+          <select  className="border rounded-lg px-3 py-1 text-sm dark:bg-[#12161F] dark:border-[#1E2530] dark:text-gray-200">
             <option>Last 7 days</option>
           </select>
         </div>
@@ -138,7 +141,7 @@ function Areacharts() {
       <div> 
         <div className="flex justify-between">
           <p className="card-title ">Sales Overview</p>
-          <select onChange={(e)=>{setdomain(e.target.value)}} value={domain}  className="border rounded-lg px-3 py-1 text-sm">
+          <select onChange={(e)=>{setdomain(e.target.value)}} value={domain}  className="border rounded-lg px-3 py-1 text-sm dark:bg-[#12161F] dark:border-[#1E2530] dark:text-gray-200">
             <option value="7days">Last 7 days</option>
             <option value="month">Last month</option>
             <option value="6month">Last 6 month</option>
