@@ -12,6 +12,11 @@ import DisplayProduct from "./Products/displayproduct";
 import Settings from "./settings/settings";
 import Searchbar from "./searchbar";
 import Sidebar from "./sidebar";
+import  Layout  from "./loging/layout";
+
+import Signin from "./loging/signin"
+import PageNotFound from "./pagenotfound";
+
 export const inform=createContext(null)
 
 
@@ -49,21 +54,27 @@ function App() {
   return (
     <BrowserRouter>
       <inform.Provider value={{info,setinfo,categories,setcategory,darkMode,setdarkMode,prductsfilter,setproductfilter,oredersfilter,setordersfilter,customersfilter,setcustomersfilter,suppliersfilter,setsuppliersfilter,inventoryfilter,setinventoryfilter,sidebarOpen,setSidebarOpen}}>
-        <div className="flex w-full min-w-0 overflow-hidden bg-[#062E24] dark:bg-[#0A0E14]  ">
+        <div className="flex w-full min-w-0 overflow-hidden bg-[#084637] dark:bg-[#0A0E14]  ">
           <Info info={{info,setinfo,setcategory}} />
-            <Sidebar value={{sidebarOpen,setSidebarOpen}} />
-            <div className={`UI w-full ${sidebarOpen ? "hidden" : "flex-col"} bg-[#F8FAF8] dark:bg-[#0A0E14] dark:text-gray-100 rounded-tl-3xl min-w-0 min-h-dvh md:flex md:flex-col md:w-3/4`}>
-              <Searchbar value={{sidebarOpen,setSidebarOpen}} />
+          
+            <div className={`UI w-full bg-[#F8FAF8] dark:bg-[#0A0E14] dark:text-gray-100 rounded-tl-3xl min-w-0 min-h-dvh md:flex md:flex-row  `}>
+              
               <Routes>
-                <Route path="/" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
-                <Route path="/dashboard" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
-                <Route path="/products" element={<Products className="" value={{info,setcategory,categories,prductsfilter,setproductfilter}} />} />
-                <Route path="/orders" element={<Orders className="" value={{info,setcategory,oredersfilter,setordersfilter}} />} />
-                <Route path="/customers" element={<Customers className="" value={{info,setcategory,customersfilter,setcustomersfilter}} />} />
-                <Route path="/suppliers" element={<Suppliers className="" value={{info,setcategory,suppliersfilter,setsuppliersfilter}} />} />
-                <Route path="/inventory" element={<Inventory className="" value={{info,setcategory,inventoryfilter,setinventoryfilter}} />} />
-                <Route path="/settings" element={<Settings className="" value={{info,setcategory}} />} />
-                <Route path="/products/:id" element={<DisplayProduct className="" value={{info,setcategory}} />} />
+                <Route path="/" element={<Signin />}/>
+                <Route path="/loging/signin" element={<Signin />}/>
+                <Route element={<Layout value={{sidebarOpen,setSidebarOpen}} />}>
+                  
+                  <Route path="/dashboard" element={<Dashboard className="" value={{info,setcategory,categories}} />} />
+                  <Route path="/products" element={<Products className="" value={{info,setcategory,categories,prductsfilter,setproductfilter}} />} />
+                  <Route path="/orders" element={<Orders className="" value={{info,setcategory,oredersfilter,setordersfilter}} />} />
+                  <Route path="/customers" element={<Customers className="" value={{info,setcategory,customersfilter,setcustomersfilter}} />} />
+                  <Route path="/suppliers" element={<Suppliers className="" value={{info,setcategory,suppliersfilter,setsuppliersfilter}} />} />
+                  <Route path="/inventory" element={<Inventory className="" value={{info,setcategory,inventoryfilter,setinventoryfilter}} />} />
+                  <Route path="/settings" element={<Settings className="" value={{info,setcategory}} />} />
+                  <Route path="/products/:id" element={<DisplayProduct className="" value={{info,setcategory}} />} />
+                  <Route path="*" element={<PageNotFound />} />
+                </Route>
+                
               </Routes>
             </div>
           </div>

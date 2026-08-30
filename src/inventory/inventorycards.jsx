@@ -78,7 +78,7 @@ function Cards() {
     ]
 
     return (
-        <div className="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 pt-1 w-full">
+        <div className="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4 pt-1 w-full">
             {cardsData.map((card, i) => (
                 <div className="card" key={i}>
                     <div className="flex justify-between items-start">

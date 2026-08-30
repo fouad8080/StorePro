@@ -52,10 +52,10 @@ function Showcustomers(){
     
 
     return(
-        <div className="min-w-0 bg-[#F8FAF8] dark:bg-[#0A0E14] border border- rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
-            <div className="w-full min-w-0 overflow-auto">
-                <div className="min-w-[1200px]">
-                    <div className=" dark:bg-[#151A24] grid grid-cols-9 w-full text-center rounded-t-2xl p-3">
+        <div className="min-w-0 bg-[#F8FAF8] dark:bg-[#0A0E14] border items-center rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col  mr-3">
+            <div className="w-full min-w-0 overflow-auto scrollbar-thin dark:scrollbar-thumb-[#F8FAF8]">
+                <div className="min-w-[900px] ">
+                    <div className=" dark:bg-[#151A24] grid grid-cols-9 w-full border-b border-gray-300 dark:border-[#1E2530] text-center rounded-t-2xl p-3">
                         <p className="min-w-0 card-title col-span-2">Customers</p>
                         <p className="card-title">Contect</p>
                         <p className="card-title">Location</p>
@@ -68,7 +68,7 @@ function Showcustomers(){
                     <div className="  w-full rounded-t-2xl text-center p-3 ">
                         {getinfo.length===0 ? <h1 className="">there is no result</h1>:
                         getinfo.map((customer,index)=>(
-                            <div className="product border-b border-gray-400 dark:border-[#1E2530] grid grid-cols-9 items-center justify-center text-center" key={index}>
+                            <div className="product border-b border-gray-300  dark:border-[#1E2530] grid grid-cols-9 items-center justify-center text-center" key={index}>
                                 <div className="min-w-0 caret-title col-span-2 flex items-center ">
                                     <img className="w-10 h-10 object-cover rounded-md" src={customer.avatar} />
                                     <div className="text-left ml-2">

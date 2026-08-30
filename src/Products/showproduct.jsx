@@ -55,8 +55,10 @@ function ShowProducts(){
     
 
     return(
-        <div className="min-w-[650px] bg-[#F8FAF8] dark:bg-[#0A0E14] border border- rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-end-safe mr-3">
-            <div className=" dark:bg-[#151A24] grid grid-cols-9 w-full text-center rounded-t-2xl p-3 overflow-x-auto">
+        <div className="min-w-0 bg-[#F8FAF8] dark:bg-[#0A0E14] border border- rounded-2xl border-gray-300 dark:border-[#1E2530] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]  flex flex-col items-center-safe mr-3">
+            <div className="w-full min-w-0 overflow-auto">
+                <div className="min-w-[750px]">
+                    <div className=" dark:bg-[#151A24] grid grid-cols-9 w-full text-center rounded-t-2xl p-3 overflow-x-auto">
                 <p className="min-w-0 card-title col-span-2">Product</p>
                 <p className="card-title">SKU</p>
                 <p className="card-title">Category</p>
@@ -89,6 +91,9 @@ function ShowProducts(){
                     </div>
                 ))}
             </div>
+                </div>
+            </div>
+            
             <div className="flex items-center">
                 {getinfo.length===0 ? "":<button disabled={currentpage===totalpage} onClick={()=>{if(currentpage!==1)setcurrentpage(p=>p-1)}} >&lt;</button>}
                 {getpages(currentpage,totalpage).map((page, i)=> page=== "..." ? (

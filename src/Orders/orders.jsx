@@ -31,9 +31,9 @@ function Orders(){
         )
     }
     return(
-        <div className="p-5">
+        <div className="p-5 w-full bg-[#F8FAF8] dark:bg-[#0A0E14]">
             <h1 className="font-semibold text-2xl">Orders</h1>
-            <p className="font-semibold text-gray-600 dark:text-gray-400 dark:text-gray-500" >Manage andtrack customer orders</p>
+            <p className="font-semibold text-gray-600 dark:text-gray-400 " >Manage andtrack customer orders</p>
             <Cards />
             <Orderstoolbar />
             <ShowOrders />

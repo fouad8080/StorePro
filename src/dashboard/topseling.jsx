@@ -1,5 +1,7 @@
 import { useState,useEffect,useContext } from "react";
 import { inform } from "../App";
+import { Link } from "react-router-dom";
+
 
 function TopSellingProducts() {
   const {info}=useContext(inform)
@@ -69,9 +71,12 @@ function TopSellingProducts() {
     <div className="bg-white dark:bg-[#12161F] rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-[#1E2530]">
       <div className="flex justify-between items-center mb-4">
         <h3 className="card-title">Top Selling Products</h3>
-        <button className="text-sm text-gray-500 dark:text-gray-400 dark:text-gray-500 border rounded-lg px-3 py-1.5">
-          View All
-        </button>
+        <Link to={"/products"}>
+          <button  className="text-sm text-gray-500 dark:text-gray-400  border rounded-lg px-3 py-1.5">
+            View All
+          </button>
+        </Link>
+        
       </div>
 
       <div className="space-y-4">

@@ -1,4 +1,4 @@
-import { Search, Bell, User, Moon, Sun ,Option } from "lucide-react";
+import { Search, Bell, User, Moon, Sun ,Sidebar , ChevronDown ,ChevronUp ,LogOut} from "lucide-react";
 import { useContext ,useState ,useEffect} from "react";
 import { inform } from "./App";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ function Searchbar(){
     const [customersinfo,setcustomersinfo]=useState([])
     const [suppliersinfo,setsuppliersinfo]=useState([])
     const [user,setuser]=useState([])
-    
+    const [logout,setlogout]=useState(false)
     
 
 
@@ -63,8 +63,8 @@ function Searchbar(){
 
     return(
         <div className="info flex flex-row relative justify-between items-center p-3.5 w- h-16 bg-[#F8FAF8] dark:bg-[rgb(10,14,20)] border-b border-b-gray-400 dark:border-b-[#1E2530]  md:rounded-t-3xl">
-                    <button className={`p-2 rounded-full ${sidebarOpen ? "bg-[#075e48] dark:bg-[#12161F]" : "bg-gray-300 dark:bg-[#12161F]"}" block md:hidden`} onClick={() => setSidebarOpen(!sidebarOpen)}>
-                        <Option className="w-5 h-5 mr-2 invert-0 text-gray-800 dark:invert" />
+                    <button className={`p-2 flex items-center justify-center text-center rounded-full bg-[#eaeeea] dark:bg-[#12161F] md:hidden`} onClick={() => setSidebarOpen(!sidebarOpen)}>
+                        <Sidebar className="w-5 h-5 text-center mr-2 invert-0 text-gray-800 dark:invert" />
                     </button>
                     <div className="flex flex-col  w-2/5 rounded-2xl">
                         <div className="search_bar flex relative top-0  bg-[#e9eae9] dark:bg-[#12161F] dark:border dark:border-[#1E2530] items-center  rounded-2xl pl-3">
@@ -148,9 +148,13 @@ function Searchbar(){
                         <div className="flex items-center gap-3">
                             <img src={user.avatar} className="w-8 h-8 rounded-full" />
                             <div className="flex flex-col">
-                                <h2 className="font-semibold">{user.name}</h2>
+                                <h2 className="font-semibold ">{user.name}</h2>
                                 <h3 className="font-semibold text-sm text-gray-500">{user.role}</h3>
                             </div>
+                            <button onClick={()=>setlogout(l=>!l)}>{logout ? <ChevronUp /> : <ChevronDown />}</button>
+                            {logout ? <div className="bg-gray-100 dark:bg-[#12161F] dark:border dark:border-[#1E2530] absolute right-3 top-16 rounded-lg p-2 z-10">
+                                <Link to={"/loging/signup"}><button className="flex items-center"><LogOut className="w-4 h-4 mr-2" />Log out</button></Link>
+                            </div>: null}
                         </div>
                     </div>
               </div>
