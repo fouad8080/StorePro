@@ -74,7 +74,6 @@ function App() {
                   <Route path="/products/:id" element={<DisplayProduct className="" value={{info,setcategory}} />} />
                   <Route path="*" element={<PageNotFound />} />
                 </Route>
-                
               </Routes>
             </div>
           </div>
