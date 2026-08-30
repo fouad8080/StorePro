@@ -149,7 +149,7 @@ function Searchbar(){
                             <img src={user.avatar} className="w-8 h-8 rounded-full" />
                             <div className="flex flex-col">
                                 <h2 className="font-semibold ">{user.name}</h2>
-                                <h3 className="font-semibold text-sm text-gray-500">{user.role}</h3>
+                                <h3 className="font-semibold text-sm text-gray-500 hidden md:block">{user.role}</h3>
                             </div>
                             <button onClick={()=>setlogout(l=>!l)}>{logout ? <ChevronUp /> : <ChevronDown />}</button>
                             {logout ? <div className="bg-gray-100 dark:bg-[#12161F] dark:border dark:border-[#1E2530] absolute right-3 top-16 rounded-lg p-2 z-10">
