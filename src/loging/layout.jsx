@@ -14,7 +14,7 @@ function Layout(){
             <Sidebar />
             <div className={`flex flex-col w-full min-w-0 overflow-hidden 
                  bg-[#F8FAF8] dark:bg-[#0A0E14] dark:text-gray-100 ${sidebarOpen ? "hidden": null} 
-                  rounded-tl-3xl min-h-dvh md:flex   `}>
+                  md:rounded-tl-3xl min-h-dvh md:flex   `}>
                 <Searchbar  value={{sidebarOpen,setSidebarOpen}}/>
                 <Outlet />
             </div>

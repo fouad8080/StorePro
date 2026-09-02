@@ -57,7 +57,7 @@ function App() {
         <div className="flex w-full min-w-0 overflow-hidden bg-[#084637] dark:bg-[#0A0E14]  ">
           <Info info={{info,setinfo,setcategory}} />
           
-            <div className={`UI w-full bg-[#F8FAF8] dark:bg-[#0A0E14] dark:text-gray-100 rounded-tl-3xl min-w-0 min-h-dvh md:flex md:flex-row  `}>
+            <div className={`UI w-full bg-[#084637] dark:bg-[#0A0E14] dark:text-gray-100 md:rounded-tl-3xl min-w-0 min-h-dvh md:flex md:flex-row  `}>
               
               <Routes>
                 <Route path="/" element={<Signin />}/>

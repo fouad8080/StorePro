@@ -38,7 +38,7 @@ function Customers(){
                 <h1 className="font-semibold text-2xl">Customers</h1>
                 <p className="font-semibold text-gray-600 dark:text-gray-400 dark:text-gray-500">Manage and view all your customers</p>
             </div>
-            <div className="flex space-x-2 gap-2">
+            <div className="flex flex-col md:flex-row space-x-2 gap-2">
                 <button className="border-[#dbd7d7] border flex gap-2 items-center  px-4 py-2 rounded-md hover:bg-[#e3dfdf] dark:border-[#232B38] dark:hover:bg-[#1B212C] dark:text-gray-200"><Download className="w-4 h-4" /> import Customers</button>
                 <button className="bg-[#16A34A]  text-white flex gap-2 items-center px-4 py-2 rounded-md hover:bg-[#15803d]"><Plus className="w-4 h-4" /> Add Customer</button>
             </div>
